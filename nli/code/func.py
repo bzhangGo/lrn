@@ -255,7 +255,9 @@ def dot_attention(query, memory, mem_mask, hidden_size,
 
 
 def layer_norm(x, eps=1e-8, scope=None):
-    """RMS-based Layer normalization layer"""
+    """RMS-based Layer normalization layer
+    https://openreview.net/pdf?id=SygkZ3MTJE
+    """
     with tf.variable_scope(scope or "rms_norm"):
         layer_size = util.shape_list(x)[-1]
 
