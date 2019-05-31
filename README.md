@@ -1,7 +1,3 @@
-<script async
-  src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 # lrn
 Source code for "A Lightweight Recurrent Network for Sequence Modeling"
 
@@ -16,10 +12,7 @@ mechanism
 
 Based on the above units, we propose [LRN](xxx):
 
-<div style="background-color:#f6f8fa;">
 <img src="https://latex.codecogs.com/svg.latex?\begin{align*}&space;\mathbf{q}_t,&space;\mathbf{k}_t,&space;\mathbf{v}_t&space;=&space;\mathbf{x}_t\mathbf{W}_q,&space;\mathbf{x}_t\mathbf{W}_k,&space;\mathbf{x}_t\mathbf{W}_v&space;\\&space;\mathbf{i}_t&space;=&space;\sigma(\mathbf{k}_t&space;&plus;&space;\mathbf{h}_{t-1})&space;\\&space;\mathbf{f}_t&space;=&space;\sigma(\mathbf{q}_t&space;-&space;\mathbf{h}_{t-1})&space;\\&space;\mathbf{h}_t&space;=&space;g(\mathbf{i}_t&space;\odot&space;\mathbf{v}_t&space;&plus;&space;\mathbf{f}_t&space;\odot&space;\mathbf{h}_{t-1})&space;\end{align}" title="\begin{align} \mathbf{q}_t, \mathbf{k}_t, \mathbf{v}_t = \mathbf{x}_t\mathbf{W}_q, \mathbf{x}_t\mathbf{W}_k, \mathbf{x}_t\mathbf{W}_v \\ \mathbf{i}_t = \sigma(\mathbf{k}_t + \mathbf{h}_{t-1}) \\ \mathbf{f}_t = \sigma(\mathbf{q}_t - \mathbf{h}_{t-1}) \\ \mathbf{h}_t = g(\mathbf{i}_t \odot \mathbf{v}_t + \mathbf{f}_t \odot \mathbf{h}_{t-1}) \end{align*}"/>
-<br>
-</div>
 
 where g(&middot;) is an activation function, *tanh* or *identity*. W<sub>q</sub>, W<sub>k</sub> and W<sub>v</sub> 
 are model parameters. The matrix computation (as well as potential layer noramlization) can be shfited outside the 
@@ -31,16 +24,13 @@ would be using layer normalization, which forces activation values to be stable.
 
 ## Structure Analysis
 One way to understand the model is to unfold the LRN structure along input tokens:
-<div style="background-color:#f6f8fa;">
 <img src="https://latex.codecogs.com/svg.latex?\mathbf{h}_t&space;&&space;=&space;\sum_{k=1}^t&space;\mathbf{i}_k&space;\odot&space;\left(\prod_{l=1}^{t-k}\mathbf{f}_{k&plus;l}\right)&space;\odot&space;\mathbf{v}_k," title="\mathbf{h}_t & = \sum_{k=1}^t \mathbf{i}_k \odot \left(\prod_{l=1}^{t-k}\mathbf{f}_{k+l}\right) \odot \mathbf{v}_k,"/>
-<br>
-</div>
 
 The above structure which is also observed by [Zhang et al.](https://arxiv.org/abs/1810.12546), [Lee et al.](https://arxiv.org/abs/1705.07393), 
 and etc, endows the RNN model with multiple interpretations. We provide two as follows:
 
 * *Relation with Self Attention Networks*
-<img src="figures/san_corr.png" />
+<img src="figures/san_corr.png" width=300 />
 
 Informally, LRN assembles forget gates from step *t* to step *k+1* in order to query the key (input gate). The result 
 weight is assigned to the corresponding value representation and contributes to the final hidden representation.
@@ -48,10 +38,10 @@ weight is assigned to the corresponding value representation and contributes to 
 Does the learned weights make sense? We do a classification tasks on AmaPolar task with a unidirectional linear-LRN.
 The final hidden state is feed into the classifier. One example below shows the learned weights. The term *great* gains
 a large weight, which decays slowly and contributes the final *positive* decision.
-<img src="figures/memory.png" />
+<img src="figures/memory.png"  width=500 />
 
 * *Long-term and Short-term Memory*
-<img src="figures/ls_mem.png" />
+<img src="figures/ls_mem.png"  width=300 />
 
 Another view of the unfolded structure is that different gates form different memory mechanism. The input gate acts as
 a short-term memory and indicates how many information can be activated in this token. The forget gates form a forget
