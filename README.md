@@ -51,12 +51,12 @@ chain that controls how to erase meaningless past information.
 ## Experiments 
 
 We did experiment on six different tasks:
-* [Natural Language Inference](nli/README.md)
-* [Document Classification](doc/README.md)
-* [Machine Translation](mt/README.md)
-* [Reading Comprehension](rc/README.md)
-* [Named Entity Recognition](ner/README.md)
-* [Language Modeling](lm/README.md)
+* [Natural Language Inference](nli)
+* [Document Classification](doc)
+* [Machine Translation](mt)
+* [Reading Comprehension](rc)
+* [Named Entity Recognition](ner)
+* [Language Modeling](lm)
 
 
 ## Citation
