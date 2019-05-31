@@ -18,15 +18,15 @@ dict(
 
     # parameters for rnnsearch
     # encoder and decoder hidden size
-    hidden_size=300,
+    hidden_size=64,
     # source and target embedding size
     embed_size=300,
-    # label number
-    label_size=3,
-    # number of layers
-    char_embed_size=64,
+    # character embedding size
+    char_embed_size=32,
     # dropout value
-    dropout=0.3,
+    dropout=0.1,
+    # word random dropout
+    word_dropout=0.1,
     # label smoothing value
     label_smooth=0.1,
     # gru, lstm, sru or atr
@@ -38,23 +38,18 @@ dict(
     # that your system will use much more cpu memory
     swap_memory=True,
 
-    # bert configuration
-    bert=None,
-    bert_dir="path-to-bert/cased_L-12_H-768_A-12",
-    tune_bert=False,
-    enable_bert=False,
-    use_bert_single=True,
-
     # whether use character embedding
     use_char=True,
     # whether lowercase word
     lower=False,
-    bert_lower=False,
 
-    model_name="nlinet",
+    # task name
+    task="amafull",
+
+    model_name="InferNet",
 
     # constant batch size at 'batch' mode for batch-based batching
-    batch_size=128,
+    batch_size=64,
     token_size=2000,
     batch_or_token='batch',
     # batch size for decoding, i.e. number of source sentences decoded at the same time
@@ -65,17 +60,13 @@ dict(
     data_multiprocessing=True,
 
     # word vocabulary
-    word_vocab_file="path-of/word_vocab",
+    word_vocab_file="",
     # char vocabulary
-    char_vocab_file="path-of/char_vocab",
+    char_vocab_file="",
     # pretrained word embedding
-    pretrain_word_embedding_file="path-of/word_vocab.npz",
-    # train file
-    train_file=["path-of/train.p", "path-of/train.q", "path-of/train.l"],
-    # dev file
-    dev_file=["path-of/dev.p", "path-of/dev.q", "path-of/dev.l"],
-    # test file
-    test_file=["path-of/test.p", "path-of/test.q", "path-of/test.l"],
+    pretrain_word_embedding_file="path-of/glove.840B.300d.txt",
+    # dataset path file
+    data_path="path-of/data",
     # output directory
     output_dir="train",
     # output during testing
@@ -91,12 +82,16 @@ dict(
     lrate=1e-3,
 
     # allowed maximum sentence length
-    max_len=100,
+    max_len=400,
     # maximum word length
     max_w_len=25,
+    # maximum sentence number
+    max_p_num=10,
+    # hierarchy neural network
+    enable_hierarchy=False,
 
     # maximum epochs
-    epoches=10,
+    epoches=6,
     # the effective batch size is: batch/token size * update_cycle
     # sequential update cycle
     update_cycle=1,
@@ -108,18 +103,26 @@ dict(
     # print information every disp_freq training steps
     disp_freq=10,
     # evaluate on the development file every eval_freq steps
-    eval_freq=1000,
+    eval_freq=10000,
     # save the model parameters every save_freq steps
-    save_freq=1000,
+    save_freq=5000,
     # saved checkpoint number
     checkpoints=5,
     # the maximum training steps, program with stop if epoches or max_training_steps is metted
-    max_training_steps=100000,
+    max_training_steps=1000000000,
+
+    # bert configuration
+    # did not use in practice, efficiency is an important issue
+    bert=None,
+    bert_dir="path-of/cased_L-12_H-768_A-12/",
+    tune_bert=False,
+    enable_bert=False,
+    use_bert_single=True,
 
     # number of threads for threaded reading, seems useless
-    nthreads=6,
+    nthreads=3,
     # buffer size controls the number of sentences readed in one time,
-    buffer_size=20000,
+    buffer_size=100000,
     # a unique queue in multi-thread reading process
     max_queue_size=100,
     # random control, not so well for tensorflow.

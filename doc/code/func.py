@@ -494,4 +494,3 @@ def get_relative_positions_matrix(length_x, length_y, max_relative_position):
     # position difference.
     final_mat = distance_mat_clipped + max_relative_position
     return final_mat
-

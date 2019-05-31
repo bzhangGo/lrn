@@ -40,7 +40,7 @@ dict(
 
     # bert configuration
     bert=None,
-    bert_dir="/home/bzhang/bzhang/bert-model/google/cased_L-12_H-768_A-12",
+    bert_dir="path-to-bert/cased_L-12_H-768_A-12",
     tune_bert=True,
     enable_bert=True,
     use_bert_single=True,
@@ -65,17 +65,17 @@ dict(
     data_multiprocessing=True,
 
     # word vocabulary
-    word_vocab_file="/home/bzhang/bzhang/nli/data/vocab/word_vocab",
+    word_vocab_file="path-of/word_vocab",
     # char vocabulary
-    char_vocab_file="/home/bzhang/bzhang/nli/data/vocab/char_vocab",
+    char_vocab_file="path-of/char_vocab",
     # pretrained word embedding
-    pretrain_word_embedding_file="/home/bzhang/bzhang/nli/data/vocab/word_vocab.npz",
+    pretrain_word_embedding_file="path-of/word_vocab.npz",
     # train file
-    train_file=["/home/bzhang/bzhang/nli/data/train.p", "/home/bzhang/bzhang/nli/data/train.q", "/home/bzhang/bzhang/nli/data/train.l"],
+    train_file=["path-of/train.p", "path-of/train.q", "path-of/train.l"],
     # dev file
-    dev_file=["/home/bzhang/bzhang/nli/data/dev.p", "/home/bzhang/bzhang/nli/data/dev.q", "/home/bzhang/bzhang/nli/data/dev.l"],
+    dev_file=["path-of/dev.p", "path-of/dev.q", "path-of/dev.l"],
     # test file
-    test_file=["/home/bzhang/bzhang/nli/data/test.p", "/home/bzhang/bzhang/nli/data/test.q", "/home/bzhang/bzhang/nli/data/test.l"],
+    test_file=["path-of/test.p", "path-of/test.q", "path-of/test.l"],
     # output directory
     output_dir="train",
     # output during testing

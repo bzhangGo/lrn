@@ -1,4 +1,4 @@
-## natural language inference in LRN model
+## Natural Language Inference in LRN model
 
 The dataset is Stanford Natural Language Inference (SNLI), which we regard as a three-way classification tasks. 
 We use an encoder-attention-decoder architecture, and stack two additional birnn upon the final sequence representation.
@@ -98,6 +98,8 @@ Main experimental results are summarized below.
     <td>0.506</td>
   </tr>
 </table>
+
+*LN*: layer normalizaton; *Time*: time in seconds per training batch measured from 1k training steps.
 
 ## How to Run?
 
