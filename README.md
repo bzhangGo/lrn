@@ -24,6 +24,7 @@ would be using layer normalization, which forces activation values to be stable.
 
 ## Structure Analysis
 One way to understand the model is to unfold the LRN structure along input tokens:
+
 <img src="https://latex.codecogs.com/svg.latex?\mathbf{h}_t&space;&&space;=&space;\sum_{k=1}^t&space;\mathbf{i}_k&space;\odot&space;\left(\prod_{l=1}^{t-k}\mathbf{f}_{k&plus;l}\right)&space;\odot&space;\mathbf{v}_k," title="\mathbf{h}_t & = \sum_{k=1}^t \mathbf{i}_k \odot \left(\prod_{l=1}^{t-k}\mathbf{f}_{k+l}\right) \odot \mathbf{v}_k,"/>
 
 The above structure which is also observed by [Zhang et al.](https://arxiv.org/abs/1810.12546), [Lee et al.](https://arxiv.org/abs/1705.07393), 
@@ -41,7 +42,7 @@ a large weight, which decays slowly and contributes the final *positive* decisio
 <img src="figures/memory.png"  width=500 />
 
 * *Long-term and Short-term Memory*
-<img src="figures/ls_mem.png"  width=300 />
+<img src="figures/ls_mem.png"  width=250 />
 
 Another view of the unfolded structure is that different gates form different memory mechanism. The input gate acts as
 a short-term memory and indicates how many information can be activated in this token. The forget gates form a forget
