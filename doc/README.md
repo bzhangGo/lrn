@@ -109,6 +109,9 @@ Main experimental results are summarized below.
 
 *Time*: time in seconds per training batch measured from 1k training steps.
 
+## Requirement
+tensorflow >= 1.8.1
+
 ## How to Run?
 
 - download and preprocess dataset

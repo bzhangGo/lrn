@@ -72,4 +72,4 @@ tensorflow >= 1.8.1
 
 ## Credits
 
-Source code structure is adapted from [R-Net](https://www.aclweb.org/anthology/papers/P/P17/P17-1018/).
+Source code structure is adapted from [R-Net](https://github.com/HKUST-KnowComp/R-Net).
