@@ -1,4 +1,4 @@
-## Named Entity Recognition in LRN model
+## Named Entity Recognition
 
 
 We employ the birnn plus CRF architecture as [Lample et al. 2016](https://www.aclweb.org/anthology/N16-1030), and

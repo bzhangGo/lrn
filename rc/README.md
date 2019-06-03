@@ -1,4 +1,4 @@
-## Reading Comprehension in LRN model
+## Reading Comprehension
 
 
 We use [SQUAD v1](https://rajpurkar.github.io/SQuAD-explorer/) for experiments and adopt the 

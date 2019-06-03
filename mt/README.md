@@ -1,4 +1,4 @@
-## Machine Translation in LRN model
+## Machine Translation
 
 
 Main source code will be available at [zero](https://github.com/bzhangGo/zero) (might require some time, 31/05/2019).

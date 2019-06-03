@@ -1,4 +1,4 @@
-## Document Classification in LRN model
+## Document Classification
 
 One concern of LRN is that after simplifying the recurrent component, modeling capacity, in particular the long-range
 dependency, would be weakened. We answer this question by doing experiments on document classification.
